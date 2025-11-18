@@ -15,7 +15,7 @@ SITE_CONFIG = {
     'company_name': 'Your Company Name',
     'tagline': 'Custom web apps that actually ship',
     'email': 'contact@yourcompany.com',
-    'linkedin': 'https://linkedin.com/in/yourprofile',
+    'linkedin': 'https://www.linkedin.com/in/didrik-lindberg-3b2955148/',
     'phone': '+1 (555) 123-4567',
 }
 
