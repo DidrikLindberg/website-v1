@@ -6,9 +6,9 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-primary-50 via-white to-purple-50 py-16 md:py-24">
+<section class="bg-gradient-to-br from-primary-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16 md:py-24">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <a href="{{ url_for('projects') }}" class="inline-flex items-center text-primary-600 hover:text-primary-700 mb-6">
+        <a href="{{ url_for('projects') }}" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 mb-6">
             <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -17,20 +17,20 @@
         
         <div class="text-center">
             <div class="text-7xl mb-6">{{ project.image_placeholder }}</div>
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{{ project.title }}</h1>
-            <p class="text-xl text-primary-600 font-semibold mb-3">{{ project.client }}</p>
-            <p class="text-2xl text-gray-700 leading-relaxed">{{ project.tagline }}</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">{{ project.title }}</h1>
+            <p class="text-xl text-primary-600 dark:text-primary-400 font-semibold mb-3">{{ project.client }}</p>
+            <p class="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">{{ project.tagline }}</p>
         </div>
     </div>
 </section>
 
 <!-- Case Study Content -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- The Problem -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 <span class="bg-red-100 text-red-600 w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -38,31 +38,31 @@
                 </span>
                 The Problem
             </h2>
-            <p class="text-lg text-gray-700 leading-relaxed pl-14">
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed pl-14">
                 {{ project.problem }}
             </p>
         </div>
         
         <!-- The Solution -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                <span class="bg-primary-100 text-primary-600 w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                <span class="bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                 </span>
                 Our Solution
             </h2>
-            <p class="text-lg text-gray-700 leading-relaxed pl-14 mb-8">
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed pl-14 mb-8">
                 {{ project.solution }}
             </p>
             
             <!-- Tech Stack -->
             <div class="pl-14">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">Technology Stack</h3>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Technology Stack</h3>
                 <div class="flex flex-wrap gap-3">
                     {% for tech in project.tech_stack %}
-                    <span class="bg-gray-100 text-gray-700 font-medium px-4 py-2 rounded-lg border border-gray-300">
+                    <span class="bg-gray-100 text-gray-700 dark:text-gray-300 font-medium px-4 py-2 rounded-lg border border-gray-300">
                         {{ tech }}
                     </span>
                     {% endfor %}
@@ -72,7 +72,7 @@
         
         <!-- Results -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 <span class="bg-green-100 text-green-600 w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -87,7 +87,7 @@
                         <svg class="w-6 h-6 text-green-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
-                        <span class="text-gray-900 font-semibold">{{ result }}</span>
+                        <span class="text-gray-900 dark:text-white font-semibold">{{ result }}</span>
                     </div>
                 </div>
                 {% endfor %}
@@ -98,19 +98,19 @@
 </section>
 
 <!-- CTA -->
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Want Similar Results for Your Business?
         </h2>
-        <p class="text-xl text-gray-600 mb-8">
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
             Let's discuss how we can help you achieve your goals.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="{{ url_for('contact') }}" class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-700 transition-all transform hover:scale-105 shadow-lg">
                 Start a Conversation
             </a>
-            <a href="{{ url_for('projects') }}" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all border-2 border-primary-600">
+            <a href="{{ url_for('projects') }}" class="inline-block bg-white dark:bg-gray-900 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 dark:bg-gray-800 transition-all border-2 border-primary-600 transition-colors duration-200">
                 View More Projects
             </a>
         </div>

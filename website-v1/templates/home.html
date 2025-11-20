@@ -6,20 +6,20 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-primary-50 via-white to-purple-50 py-20 md:py-32">
+<section class="relative bg-gradient-to-br from-primary-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 md:py-32 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                 {{ config.tagline }}
             </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 We build custom web applications, integrations, and CRM solutions that help businesses streamline operations and accelerate growth.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ url_for('contact') }}" class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
                     Book a Discovery Call
                 </a>
-                <a href="{{ url_for('projects') }}" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all border-2 border-primary-600">
+                <a href="{{ url_for('projects') }}" class="inline-block bg-white dark:bg-gray-800 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all border-2 border-primary-600 dark:border-primary-400">
                     View Our Work
                 </a>
             </div>
@@ -28,24 +28,24 @@
 </section>
 
 <!-- Services Overview -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What We Do</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Do</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 From custom web apps to seamless integrations, we deliver solutions that work.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {% for service in services %}
-            <div class="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:border-primary-300 group">
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:shadow-xl transition-all hover:border-primary-300 dark:hover:border-primary-600 group">
                 <div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform">
                     {{ service.icon }}
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">{{ service.title }}</h3>
-                <p class="text-gray-600 mb-4">{{ service.short_description }}</p>
-                <a href="{{ url_for('services') }}#{{ service.id }}" class="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">{{ service.title }}</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">{{ service.short_description }}</p>
+                <a href="{{ url_for('services') }}#{{ service.id }}" class="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 inline-flex items-center">
                     Learn more 
                     <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -56,7 +56,7 @@
         </div>
         
         <div class="text-center mt-12">
-            <a href="{{ url_for('services') }}" class="inline-block text-primary-600 font-semibold hover:text-primary-700 text-lg">
+            <a href="{{ url_for('services') }}" class="inline-block text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 text-lg">
                 View all services →
             </a>
         </div>
@@ -64,48 +64,48 @@
 </section>
 
 <!-- Why Work With Us -->
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Work With Us</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Work With Us</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 We're not just developers—we're problem solvers who care about your success.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div class="text-center">
-                <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Fast Delivery</h3>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Fast Delivery</h3>
+                <p class="text-gray-600 dark:text-gray-300">
                     We ship working software quickly. No endless meetings or scope creep—just results.
                 </p>
             </div>
             
             <div class="text-center">
-                <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Quality You Can Trust</h3>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Quality You Can Trust</h3>
+                <p class="text-gray-600 dark:text-gray-300">
                     Clean, maintainable code. Thorough testing. Documentation that actually helps.
                 </p>
             </div>
             
             <div class="text-center">
-                <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">True Partnership</h3>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">True Partnership</h3>
+                <p class="text-gray-600 dark:text-gray-300">
                     Clear communication. Transparent pricing. We're invested in your long-term success.
                 </p>
             </div>
@@ -114,38 +114,38 @@
 </section>
 
 <!-- Featured Projects -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Recent Projects</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Recent Projects</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Real projects. Real results. See how we've helped businesses like yours.
             </p>
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {% for project in projects %}
-            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group">
-                <div class="bg-gradient-to-br from-primary-50 to-purple-50 p-12 text-center">
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition-all group">
+                <div class="bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-700 dark:to-gray-800 p-12 text-center">
                     <div class="text-7xl">{{ project.image_placeholder }}</div>
                 </div>
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ project.title }}</h3>
-                    <p class="text-primary-600 font-semibold mb-4">{{ project.client }}</p>
-                    <p class="text-gray-600 mb-6">{{ project.tagline }}</p>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{{ project.title }}</h3>
+                    <p class="text-primary-600 dark:text-primary-400 font-semibold mb-4">{{ project.client }}</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">{{ project.tagline }}</p>
                     
                     <div class="space-y-2 mb-6">
                         {% for result in project.results[:2] %}
                         <div class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-green-500 dark:text-green-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">{{ result }}</span>
+                            <span class="text-gray-700 dark:text-gray-300">{{ result }}</span>
                         </div>
                         {% endfor %}
                     </div>
                     
-                    <a href="{{ url_for('project_detail', project_id=project.id) }}" class="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center group">
+                    <a href="{{ url_for('project_detail', project_id=project.id) }}" class="text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 inline-flex items-center group">
                         Read case study 
                         <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -157,7 +157,7 @@
         </div>
         
         <div class="text-center mt-12">
-            <a href="{{ url_for('projects') }}" class="inline-block text-primary-600 font-semibold hover:text-primary-700 text-lg">
+            <a href="{{ url_for('projects') }}" class="inline-block text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 text-lg">
                 View all projects →
             </a>
         </div>
@@ -165,34 +165,34 @@
 </section>
 
 <!-- Client Logos -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-gray-500 text-sm uppercase tracking-wide font-semibold mb-8">
+        <p class="text-center text-gray-500 dark:text-gray-400 text-sm uppercase tracking-wide font-semibold mb-8">
             Trusted by growing businesses
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-            <div class="text-center text-2xl font-bold text-gray-400">TechCorp</div>
-            <div class="text-center text-2xl font-bold text-gray-400">GrowthAgency</div>
-            <div class="text-center text-2xl font-bold text-gray-400">ArtisanGoods</div>
-            <div class="text-center text-2xl font-bold text-gray-400">LogisticsPro</div>
+            <div class="text-center text-2xl font-bold text-gray-400 dark:text-gray-500">TechCorp</div>
+            <div class="text-center text-2xl font-bold text-gray-400 dark:text-gray-500">GrowthAgency</div>
+            <div class="text-center text-2xl font-bold text-gray-400 dark:text-gray-500">ArtisanGoods</div>
+            <div class="text-center text-2xl font-bold text-gray-400 dark:text-gray-500">LogisticsPro</div>
         </div>
     </div>
 </section>
 
 <!-- Testimonials -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Clients Say</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">What Clients Say</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Don't just take our word for it—hear from the people we've worked with.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {% for testimonial in testimonials %}
-            <div class="bg-gray-50 rounded-xl p-8 border border-gray-200">
-                <div class="flex text-yellow-400 mb-4">
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+                <div class="flex text-yellow-400 dark:text-yellow-500 mb-4">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
@@ -209,10 +209,10 @@
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                 </div>
-                <p class="text-gray-700 mb-6 italic">"{{ testimonial.quote }}"</p>
+                <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"{{ testimonial.quote }}"</p>
                 <div>
-                    <p class="font-semibold text-gray-900">{{ testimonial.author }}</p>
-                    <p class="text-sm text-gray-600">{{ testimonial.title }}, {{ testimonial.company }}</p>
+                    <p class="font-semibold text-gray-900 dark:text-white">{{ testimonial.author }}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">{{ testimonial.title }}, {{ testimonial.company }}</p>
                 </div>
             </div>
             {% endfor %}
@@ -229,7 +229,7 @@
         <p class="text-xl text-white/90 mb-8">
             Let's talk about your project. Book a free 30-minute discovery call—no pressure, no sales pitch.
         </p>
-        <a href="{{ url_for('contact') }}" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+        <a href="{{ url_for('contact') }}" class="inline-block bg-white dark:bg-gray-900 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
             Schedule Your Call
         </a>
     </div>

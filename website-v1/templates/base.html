@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,7 @@
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -30,6 +31,14 @@
                     }
                 }
             }
+        }
+    </script>
+    
+    <!-- Dark Mode Initialization Script -->
+    <script>
+        // Initialize dark mode from localStorage before page renders
+        if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
         }
     </script>
     
@@ -59,10 +68,10 @@
     
     {% block extra_head %}{% endblock %}
 </head>
-<body class="antialiased bg-white text-gray-900">
+<body class="antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 z-50 transition-colors duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -74,26 +83,44 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ url_for('home') }}" class="text-gray-700 hover:text-primary-600 transition-colors {% if request.endpoint == 'home' %}font-semibold text-primary-600{% endif %}">
+                    <a href="{{ url_for('home') }}" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors {% if request.endpoint == 'home' %}font-semibold text-primary-600 dark:text-primary-400{% endif %}">
                         Home
                     </a>
-                    <a href="{{ url_for('services') }}" class="text-gray-700 hover:text-primary-600 transition-colors {% if request.endpoint == 'services' %}font-semibold text-primary-600{% endif %}">
+                    <a href="{{ url_for('services') }}" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors {% if request.endpoint == 'services' %}font-semibold text-primary-600 dark:text-primary-400{% endif %}">
                         Services
                     </a>
-                    <a href="{{ url_for('projects') }}" class="text-gray-700 hover:text-primary-600 transition-colors {% if request.endpoint in ['projects', 'project_detail'] %}font-semibold text-primary-600{% endif %}">
+                    <a href="{{ url_for('projects') }}" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors {% if request.endpoint in ['projects', 'project_detail'] %}font-semibold text-primary-600 dark:text-primary-400{% endif %}">
                         Projects
                     </a>
-                    <a href="{{ url_for('about') }}" class="text-gray-700 hover:text-primary-600 transition-colors {% if request.endpoint == 'about' %}font-semibold text-primary-600{% endif %}">
+                    <a href="{{ url_for('about') }}" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors {% if request.endpoint == 'about' %}font-semibold text-primary-600 dark:text-primary-400{% endif %}">
                         About
                     </a>
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
                     <a href="{{ url_for('contact') }}" class="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium">
                         Get in Touch
                     </a>
                 </div>
                 
                 <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" type="button" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                <div class="md:hidden flex items-center space-x-2">
+                    <!-- Dark Mode Toggle for Mobile -->
+                    <button id="dark-mode-toggle-mobile" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" type="button" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -103,18 +130,18 @@
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md {% if request.endpoint == 'home' %}font-semibold text-primary-600 bg-gray-50{% endif %}">
+                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md {% if request.endpoint == 'home' %}font-semibold text-primary-600 dark:text-primary-400 bg-gray-50 dark:bg-gray-800{% endif %}">
                     Home
                 </a>
-                <a href="{{ url_for('services') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md {% if request.endpoint == 'services' %}font-semibold text-primary-600 bg-gray-50{% endif %}">
+                <a href="{{ url_for('services') }}" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md {% if request.endpoint == 'services' %}font-semibold text-primary-600 dark:text-primary-400 bg-gray-50 dark:bg-gray-800{% endif %}">
                     Services
                 </a>
-                <a href="{{ url_for('projects') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md {% if request.endpoint in ['projects', 'project_detail'] %}font-semibold text-primary-600 bg-gray-50{% endif %}">
+                <a href="{{ url_for('projects') }}" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md {% if request.endpoint in ['projects', 'project_detail'] %}font-semibold text-primary-600 dark:text-primary-400 bg-gray-50 dark:bg-gray-800{% endif %}">
                     Projects
                 </a>
-                <a href="{{ url_for('about') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md {% if request.endpoint == 'about' %}font-semibold text-primary-600 bg-gray-50{% endif %}">
+                <a href="{{ url_for('about') }}" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md {% if request.endpoint == 'about' %}font-semibold text-primary-600 dark:text-primary-400 bg-gray-50 dark:bg-gray-800{% endif %}">
                     About
                 </a>
                 <a href="{{ url_for('contact') }}" class="block px-3 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 text-center font-medium mt-2">
@@ -131,7 +158,7 @@
             {% if messages %}
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
                     {% for category, message in messages %}
-                        <div class="rounded-lg p-4 mb-4 {% if category == 'error' %}bg-red-50 text-red-800 border border-red-200{% else %}bg-green-50 text-green-800 border border-green-200{% endif %}">
+                        <div class="rounded-lg p-4 mb-4 {% if category == 'error' %}bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800{% else %}bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800{% endif %}">
                             {{ message }}
                         </div>
                     {% endfor %}
@@ -143,7 +170,7 @@
     </main>
     
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 mt-20">
+    <footer class="bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400 mt-20 transition-colors duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Company Info -->
@@ -190,7 +217,7 @@
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-500">
+            <div class="border-t border-gray-800 dark:border-gray-900 mt-8 pt-8 text-center text-sm text-gray-500 dark:text-gray-600">
                 <p>&copy; {{ current_year }} {{ config.company_name }}. All rights reserved.</p>
             </div>
         </div>
@@ -204,6 +231,47 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+    </script>
+    
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('dark-mode-toggle');
+        const themeToggleBtnMobile = document.getElementById('dark-mode-toggle-mobile');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+        const htmlRoot = document.documentElement;
+
+        // Function to update icon visibility
+        function updateIcons() {
+            if (htmlRoot.classList.contains('dark')) {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIconMobile.classList.remove('hidden');
+                themeToggleLightIconMobile.classList.add('hidden');
+            } else {
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIconMobile.classList.add('hidden');
+                themeToggleLightIconMobile.classList.remove('hidden');
+            }
+        }
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            htmlRoot.classList.toggle('dark');
+            const isDark = htmlRoot.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+            updateIcons();
+        }
+
+        // Initialize icons on page load
+        updateIcons();
+
+        // Add event listeners
+        themeToggleBtn.addEventListener('click', toggleDarkMode);
+        themeToggleBtnMobile.addEventListener('click', toggleDarkMode);
     </script>
     
     {% block extra_scripts %}{% endblock %}
