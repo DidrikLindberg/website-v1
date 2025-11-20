@@ -6,11 +6,11 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-primary-50 via-white to-purple-50 py-16 md:py-24">
+<section class="bg-gradient-to-br from-primary-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Us</h1>
-            <p class="text-xl text-gray-600">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">About Us</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300">
                 We're a web development consulting firm that actually cares about shipping quality software on time.
             </p>
         </div>
@@ -18,11 +18,11 @@
 </section>
 
 <!-- Story Section -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Our Story</h2>
+            <div class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                 <p>
                     <strong>{{ config.company_name }}</strong> was founded on a simple idea: businesses deserve web development partners who actually <em>deliver</em>.
                 </p>
@@ -42,56 +42,56 @@
         <div class="mb-16">
             <div class="bg-gradient-to-br from-primary-100 to-purple-100 rounded-xl p-16 text-center border border-primary-200">
                 <div class="text-8xl mb-4">👨‍💻</div>
-                <p class="text-gray-600 italic">[ Replace with your photo or team photo ]</p>
+                <p class="text-gray-600 dark:text-gray-300 italic">[ Replace with your photo or team photo ]</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Skills & Tech Stack -->
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Tech Stack</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Tech Stack</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 We use modern, battle-tested technologies to build solutions that are fast, reliable, and maintainable.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Backend -->
-            <div class="bg-white rounded-xl p-8 border border-gray-200">
-                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                     <span class="text-3xl mr-3">⚙️</span>
                     Backend
                 </h3>
-                <ul class="space-y-2 text-gray-700">
+                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Python (Flask, Django, FastAPI)
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Node.js & Express
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         PostgreSQL, MySQL, MongoDB
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Redis, Celery
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         RESTful APIs & GraphQL
@@ -100,38 +100,38 @@
             </div>
             
             <!-- Frontend -->
-            <div class="bg-white rounded-xl p-8 border border-gray-200">
-                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                     <span class="text-3xl mr-3">🎨</span>
                     Frontend
                 </h3>
-                <ul class="space-y-2 text-gray-700">
+                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         React, Vue.js, Svelte
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         TypeScript & JavaScript
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Tailwind CSS, Bootstrap
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Next.js, Vite
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Responsive & Mobile-First Design
@@ -140,38 +140,38 @@
             </div>
             
             <!-- Integration & Cloud -->
-            <div class="bg-white rounded-xl p-8 border border-gray-200">
-                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                     <span class="text-3xl mr-3">☁️</span>
                     Integration & Cloud
                 </h3>
-                <ul class="space-y-2 text-gray-700">
+                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Salesforce & CRM Integration
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         AWS, Azure, Google Cloud
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Docker & Kubernetes
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Stripe, PayPal, Payment APIs
                     </li>
                     <li class="flex items-center">
-                        <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         Third-party API Integration
@@ -183,11 +183,11 @@
 </section>
 
 <!-- Values & Working Style -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">How We Work</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Our values and approach to building software that actually works.
             </p>
         </div>
@@ -195,14 +195,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Value 1 -->
             <div class="flex items-start">
-                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                    <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Clear Communication</h3>
-                    <p class="text-gray-700">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Clear Communication</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
                         No jargon, no surprises. We explain technical concepts in plain English and keep you updated throughout the project. You'll always know what's happening and why.
                     </p>
                 </div>
@@ -210,14 +210,14 @@
             
             <!-- Value 2 -->
             <div class="flex items-start">
-                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                    <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Quality Over Speed</h3>
-                    <p class="text-gray-700">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Quality Over Speed</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
                         We ship fast, but never at the expense of quality. Clean code, proper testing, and thoughtful architecture mean fewer bugs and lower maintenance costs down the road.
                     </p>
                 </div>
@@ -225,14 +225,14 @@
             
             <!-- Value 3 -->
             <div class="flex items-start">
-                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                    <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Results-Focused</h3>
-                    <p class="text-gray-700">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Results-Focused</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
                         We care about business outcomes, not just shipping features. Every technical decision is made with your goals in mind—whether that's faster operations, better UX, or scalable growth.
                     </p>
                 </div>
@@ -240,14 +240,14 @@
             
             <!-- Value 4 -->
             <div class="flex items-start">
-                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                    <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Continuous Learning</h3>
-                    <p class="text-gray-700">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Continuous Learning</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
                         Technology evolves fast. We stay current with best practices and emerging tools so you benefit from modern, maintainable solutions—not legacy tech that'll haunt you in two years.
                     </p>
                 </div>
@@ -255,14 +255,14 @@
             
             <!-- Value 5 -->
             <div class="flex items-start">
-                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                    <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Transparent Pricing</h3>
-                    <p class="text-gray-700">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Transparent Pricing</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
                         No hidden fees, no surprise invoices. We provide clear estimates upfront and communicate proactively if scope changes. You'll always know where your budget is going.
                     </p>
                 </div>
@@ -270,14 +270,14 @@
             
             <!-- Value 6 -->
             <div class="flex items-start">
-                <div class="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                    <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Long-Term Partnership</h3>
-                    <p class="text-gray-700">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Long-Term Partnership</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
                         We're not here for a quick project and goodbye. We build relationships and stay available for support, maintenance, and future enhancements as your business grows.
                     </p>
                 </div>
@@ -295,7 +295,7 @@
         <p class="text-xl text-white/90 mb-8">
             Think we'd be a good fit? Let's have a conversation about your project.
         </p>
-        <a href="{{ url_for('contact') }}" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+        <a href="{{ url_for('contact') }}" class="inline-block bg-white dark:bg-gray-900 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
             Get in Touch
         </a>
     </div>
