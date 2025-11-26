@@ -12,7 +12,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-producti
 
 # Configuration - EDIT THESE VALUES
 SITE_CONFIG = {
-    'company_name': 'Didrik Lindberg',
+    'company_name': 'A-frame Solutions',
     'tagline': 'Custom web apps that actually ship',
     'email': 'contact@yourcompany.com',
     'linkedin': 'https://www.linkedin.com/in/didrik-lindberg-3b2955148/',
