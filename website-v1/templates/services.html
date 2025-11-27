@@ -1,84 +1,86 @@
 {% extends "base.html" %}
 
-{% block title %}Services - {{ config.company_name }}{% endblock %}
-{% block description %}Professional Salesforce development services: custom Apex development, Lightning Web Components, strategic consulting, platform optimization, and integration services for enterprise organizations.{% endblock %}
+{% block title %}Salesforce Services - {{ config.company_name }}{% endblock %}
+
+{% block description %}Comprehensive Salesforce development services: Apex, Lightning Web Components, integrations, strategic consulting, healthcare solutions, and financial services.{% endblock %}
 
 {% block content %}
-
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-primary-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Our Services</h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300">
-                From custom Apex development to strategic platform consulting, we deliver Salesforce solutions that drive measurable business results.
-            </p>
-        </div>
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+            Our Salesforce Services
+        </h1>
+        <p class="max-w-3xl mx-auto text-xl text-gray-300">
+            From custom Apex development to strategic consulting, we offer comprehensive Salesforce solutions 
+            tailored to your industry and business needs.
+        </p>
     </div>
-</section>
+</div>
 
-<!-- Services Detail -->
-<section class="py-20 bg-white dark:bg-gray-900">
+<!-- Services Grid -->
+<section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-24">
+        <div class="space-y-12">
             {% for service in services %}
-            <div id="{{ service.id }}" class="scroll-mt-20">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <!-- Service Info -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Left Column -->
                     <div>
-                        <div class="flex items-center mb-6">
-                            <span class="text-6xl mr-4">{{ service.icon }}</span>
-                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{{ service.title }}</h2>
+                        <div class="flex items-start mb-6">
+                            <div class="text-6xl mr-4">{{ service.icon }}</div>
+                            <div>
+                                <h2 class="text-3xl font-bold text-gray-900 mb-2">{{ service.title }}</h2>
+                                <p class="text-lg text-gray-600">{{ service.short_description }}</p>
+                            </div>
                         </div>
-                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        
+                        <p class="text-gray-700 mb-6 leading-relaxed">
                             {{ service.full_description }}
                         </p>
-                        <div class="bg-primary-50 dark:bg-primary-900/30 border-l-4 border-primary-600 p-6 rounded-r-lg mb-6">
-                            <p class="font-semibold text-gray-900 dark:text-white mb-2">Ideal for:</p>
-                            <p class="text-gray-700 dark:text-gray-300">{{ service.ideal_for }}</p>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                {% for tech in service.tech_highlights %}
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800">
+                                    {{ tech }}
+                                </span>
+                                {% endfor %}
+                            </div>
                         </div>
-                        <a href="{{ url_for('contact') }}" class="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
-                            Discuss This Service
-                        </a>
+                        
+                        <div class="bg-blue-50 border-l-4 border-primary-500 p-4 rounded-r-lg">
+                            <p class="text-sm font-medium text-gray-900 mb-1">Ideal For:</p>
+                            <p class="text-sm text-gray-700">{{ service.ideal_for }}</p>
+                        </div>
                     </div>
                     
-                    <!-- Deliverables & Outcomes -->
-                    <div class="space-y-8">
-                        <!-- Deliverables -->
-                        <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                                <svg class="w-6 h-6 mr-2 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                                </svg>
-                                What You Get
-                            </h3>
+                    <!-- Right Column -->
+                    <div>
+                        <div class="mb-8">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">What You Get</h3>
                             <ul class="space-y-3">
                                 {% for deliverable in service.deliverables %}
                                 <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-primary-600 dark:text-primary-400 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                     </svg>
-                                    <span class="text-gray-700 dark:text-gray-300">{{ deliverable }}</span>
+                                    <span class="text-gray-700">{{ deliverable }}</span>
                                 </li>
                                 {% endfor %}
                             </ul>
                         </div>
                         
-                        <!-- Outcomes -->
-                        <div class="bg-green-50 rounded-xl p-8 border border-green-200">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                                <svg class="w-6 h-6 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                </svg>
-                                Expected Outcomes
-                            </h3>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Expected Outcomes</h3>
                             <ul class="space-y-3">
                                 {% for outcome in service.outcomes %}
                                 <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                     </svg>
-                                    <span class="text-gray-700 dark:text-gray-300">{{ outcome }}</span>
+                                    <span class="text-gray-700">{{ outcome }}</span>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -86,112 +88,98 @@
                     </div>
                 </div>
             </div>
-            
-            {% if not loop.last %}
-            <div class="border-t border-gray-200 dark:border-gray-700"></div>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
 </section>
 
 <!-- Engagement Models -->
-<section class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
+<section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">How We Work</h2>
-            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Flexible engagement models to fit your needs and budget.
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+                Flexible Engagement Models
+            </h2>
+            <p class="max-w-2xl mx-auto text-xl text-gray-600">
+                We work how you work best—choose the engagement model that fits your needs.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Project-Based -->
-            <div class="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                <div class="text-4xl mb-4">🎯</div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Project-Based</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Fixed scope, fixed timeline, fixed price. Perfect for well-defined projects with clear requirements.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div class="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Project-Based</h3>
+                <p class="text-gray-600 mb-4">Fixed scope, timeline, and budget for defined deliverables.</p>
+                <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Clear deliverables and timeline
+                        Clear deliverables
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Predictable budget
+                        Predictable costs
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Ideal for MVPs and new features
+                        Best for defined initiatives
                     </li>
                 </ul>
             </div>
             
-            <!-- Retainer -->
-            <div class="bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-primary-600 hover:shadow-xl transition-all relative">
-                <div class="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+            <div class="bg-gradient-to-br from-primary-50 to-purple-50 rounded-xl p-8 border-2 border-primary-200 relative">
+                <div class="absolute top-4 right-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                     POPULAR
                 </div>
-                <div class="text-4xl mb-4">🔄</div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Monthly Retainer</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Ongoing partnership with dedicated hours each month. Great for continuous development and support.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Monthly Retainer</h3>
+                <p class="text-gray-600 mb-4">Ongoing partnership with dedicated hours each month.</p>
+                <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Priority support and fast turnaround
+                        Flexible priorities
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Flexible scope, adapt as you go
+                        Continuous improvement
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Best value for ongoing work
+                        Best for ongoing support
                     </li>
                 </ul>
             </div>
             
-            <!-- Consulting / Audit -->
-            <div class="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                <div class="text-4xl mb-4">💡</div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Consulting & Audits</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Strategic guidance, code reviews, and architecture planning. Get expert advice without a full build commitment.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div class="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Consulting & Audits</h3>
+                <p class="text-gray-600 mb-4">Strategic guidance and technical assessment services.</p>
+                <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Expert technical guidance
+                        Expert assessment
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Detailed reports and recommendations
+                        Strategic roadmaps
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
-                        Perfect for strategic planning
+                        Best for planning phase
                     </li>
                 </ul>
             </div>
@@ -199,19 +187,21 @@
     </div>
 </section>
 
-<!-- CTA -->
-<section class="py-20 bg-white dark:bg-gray-900">
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-br from-primary-600 to-purple-700">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">
             Not Sure Which Service You Need?
         </h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Let's have a quick call to discuss your needs. We'll help you figure out the best approach.
+        <p class="text-xl text-blue-100 mb-10">
+            Let's have a conversation about your challenges and goals. We'll help you determine the best path forward.
         </p>
-        <a href="{{ url_for('contact') }}" class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-700 transition-all transform hover:scale-105 shadow-lg">
+        <a href="{{ url_for('contact') }}" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-base font-medium rounded-lg text-white hover:bg-white hover:text-primary-600 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105">
             Schedule a Free Consultation
+            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
         </a>
     </div>
 </section>
-
 {% endblock %}
